@@ -1,11 +1,56 @@
 <html>
-    <head></head>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
     <body>
-        <h1>Image recognition</h1>
-        <nav>
-            <li></li>
-            <li></li>
-            <li></li>
-        </nav>
+        <div style="display: flex; flex-direction: row;">
+            <form id="image_form">
+                <div class="form-group">
+                  <label for="exampleFormControlFile1">Example file input</label>
+                  <input type="file" class="form-control-file" id="image_input">
+                </div>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+              <div style="display: flex; flex-direction:column" class="col-sm">
+                <h3 style="align-self: center;">KNN-Secuencial</h3>
+              </div>
+              <div style="display: flex; flex-direction:column" class="col-sm">
+                <h3 style="align-self: center;">KNN-RTree</h3>
+              </div>
+              <div style="display: flex; flex-direction:column" class="col-sm">
+                <h3 style="align-self: center;">KNN-HighD</h3>
+            </div>
+        </div>
     </body>
+
+    <script>
+        let image = document.getElementById('image_input');
+        document.getElementById('image_form').onsubmit = function(e){
+            e.preventDefault();
+            image = image.value;
+            fetch('/secuencial',{
+                method:'POST',
+                body:JSON.stringify({
+                    'image':image
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(function (response) {
+                console.log('response : ', response);
+                return response.json();
+            }).then(function(responseJson){
+                console.log('response : ', responseJson);
+            });
+        };
+    </script>
+    
+    <style>
+        body{
+            margin: 0;
+        }
+    </style>
 </html>
