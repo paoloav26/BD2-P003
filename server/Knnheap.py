@@ -20,4 +20,13 @@ def KnnHeap(Query,k,data):
             heapq.heappush(result,(dist,i))
     return list(heapq.heappop(result) for i in range(k))
 
+def KnnRange(Query,range):
+    result=[]
+    for i in data_vec:
+        for j in data_vec[i]:
+            dist=face_recognition.face_distance([Query],j)[0]
+            if(dist<range): result.append(i)
+    return result
+
+
 print(KnnHeap(encoding,10,data_vec))
