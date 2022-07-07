@@ -4,49 +4,34 @@
     </head>
     <body>
         <div style="display: flex; flex-direction: row;">
-            <form id="image_form">
+            <form id="image_form" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="exampleFormControlFile1">Example file input</label>
-                  <input type="file" class="form-control-file" id="image_input">
+                  <input type="file" class="form-control-file" id="image" name="image">
                 </div>
                 <input type="submit" value="submit">
             </form>
         </div>
         <div class="container-fluid">
+            {{error_msg}}
             <div class="row">
               <div style="display: flex; flex-direction:column" class="col-sm">
                 <h3 style="align-self: center;">KNN-Secuencial</h3>
+                {% for item in Knnheap %}
+                    <p>{{ item }}</p>
+                {% endfor %}
               </div>
               <div style="display: flex; flex-direction:column" class="col-sm">
                 <h3 style="align-self: center;">KNN-RTree</h3>
               </div>
               <div style="display: flex; flex-direction:column" class="col-sm">
                 <h3 style="align-self: center;">KNN-HighD</h3>
+                {% for item in KnnHighD %}
+                    <p>{{ item }}</p>
+                {% endfor %}
             </div>
         </div>
     </body>
-
-    <script>
-        let image = document.getElementById('image_input');
-        document.getElementById('image_form').onsubmit = function(e){
-            e.preventDefault();
-            image = image.value;
-            fetch('/secuencial',{
-                method:'POST',
-                body:JSON.stringify({
-                    'image':image
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(function (response) {
-                console.log('response : ', response);
-                return response.json();
-            }).then(function(responseJson){
-                console.log('response : ', responseJson);
-            });
-        };
-    </script>
     
     <style>
         body{

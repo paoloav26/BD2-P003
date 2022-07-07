@@ -1,2 +1,4 @@
 
 server/lfw
+server/__pycache__
+server/static

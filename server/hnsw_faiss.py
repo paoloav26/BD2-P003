@@ -1,5 +1,4 @@
 import pickle
-from turtle import pen
 import faiss
 import numpy as np
 import face_recognition
@@ -24,10 +23,10 @@ vectores_caracteristicos_np=np.array([i[0] for i in vectores_caracteristicos]).a
 #Construccion del HNWS
 index.add(vectores_caracteristicos_np)
 
+faiss.write_index(index,"hnsw.faiss")
+
 route="./briney.jpg"
 encoding = face_recognition.face_encodings(face_recognition.load_image_file(route))[0]
-
-vectores_caracteristicos_a_buscar=[]
 
 nombres=[]
 for i in index.search(np.array([encoding]).astype('float32'),k=4)[1]:
