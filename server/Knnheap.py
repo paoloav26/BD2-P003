@@ -6,8 +6,9 @@ import heapq
 
 pickle_in = open("dict.pickle","rb")
 data_vec=pickle.load(pickle_in)
+pickle_in.close()
 
-route="./IMG_4300mod.jpg"
+route="./briney.jpg"
 encoding = face_recognition.face_encodings(face_recognition.load_image_file(route))[0]
 
 def KnnHeap(Query,k,data):
@@ -28,4 +29,4 @@ def RangeSearch(Query,range,data):
 
 
 print(KnnHeap(encoding,10,data_vec))
-#print(RangeSearch(encoding,2,data_vec))
+print(set(RangeSearch(encoding,0.6,data_vec)))
