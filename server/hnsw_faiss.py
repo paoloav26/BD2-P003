@@ -3,7 +3,7 @@ import faiss
 import numpy as np
 import face_recognition
 
-pickle_in = open("dict.pickle","rb")
+pickle_in = open("./server/dict.pickle","rb")
 data_vec=pickle.load(pickle_in)
 pickle_in.close()
 
@@ -18,12 +18,12 @@ for nombre_persona in data_vec:
     for vector_caracteristico in data_vec[nombre_persona]:
         vectores_caracteristicos.append((vector_caracteristico,nombre_persona))
 
-vectores_caracteristicos_np=np.array([i[0] for i in vectores_caracteristicos]).astype('float32')
+vectores_caracteristicos_np=np.array([i[0][0] for i in vectores_caracteristicos]).astype('float32')
 
 #Construccion del HNWS
 index.add(vectores_caracteristicos_np)
 
-faiss.write_index(index,"hnsw.faiss")
+faiss.write_index(index,"./server/hnsw.faiss")
 
 route="./briney.jpg"
 encoding = face_recognition.face_encodings(face_recognition.load_image_file(route))[0]

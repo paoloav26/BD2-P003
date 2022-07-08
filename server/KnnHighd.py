@@ -15,13 +15,13 @@ def KnnHighD(Query,k,data):
         for vector_caracteristico in data[nombre_persona]:
             vectores_caracteristicos.append((vector_caracteristico,nombre_persona))
 
-    vectores_caracteristicos_np=np.array([i[0] for i in vectores_caracteristicos]).astype('float32')
+    vectores_caracteristicos_np=np.array([i[0][0] for i in vectores_caracteristicos]).astype('float32')
 
     nombres=[]
     index=faiss.read_index("./server/hnsw.faiss")
-    for i in index.search(np.array([Query]).astype('float32'),k=k)[1]:
-        for j in i:
-            nombres.append(vectores_caracteristicos[j][1])
+    result=index.search(np.array([Query]).astype('float32'),k=k)
+    for j in range(k):
+        nombres.append((result[0][0][j],vectores_caracteristicos[result[1][0][j]][0][1]))
 
     return(nombres)
 
