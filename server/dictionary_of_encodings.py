@@ -16,12 +16,12 @@ dict_name_encodings_arr = {}
 for person_name,route in file_dir:
     if person_name not in dict_name_encodings_arr:
         try:
-            dict_name_encodings_arr[person_name] = [(face_recognition.face_encodings(face_recognition.load_image_file(route))[0],route[9:])]
+            dict_name_encodings_arr[person_name] = [(face_recognition.face_encodings(face_recognition.load_image_file(route))[0],route[2:])]
         except:
             continue
     else:
         try:
-            dict_name_encodings_arr[person_name].append((face_recognition.face_encodings(face_recognition.load_image_file(route))[0],route[9:]))
+            dict_name_encodings_arr[person_name].append((face_recognition.face_encodings(face_recognition.load_image_file(route))[0],route[2:]))
         except:
             continue
 

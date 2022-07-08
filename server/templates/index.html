@@ -12,14 +12,16 @@
                 <input type="submit" value="submit">
             </form>
         </div>
-        <img src="{{url_for('static', filename='lfw/Britney_Spears/Britney_Spears_0001.jpg')}}" alt="">
         <div class="container-fluid">
             {{error_msg}}
             <div class="row">
               <div style="display: flex; flex-direction:column" class="col-sm">
                 <h3 style="align-self: center;">KNN-Secuencial</h3>
                 {% for item in Knnheap %}
-                    <p>{{ item }}</p>
+                <div style="display: flex; flex-direction: column;">
+                    <img style="width: 220px; display: flex; align-self: center;" src="{{item[1]}}">
+                    <p style="display: flex; align-self: center;">Distance: {{ item[0] }}</p>
+                </div>
                 {% endfor %}
               </div>
               <div style="display: flex; flex-direction:column" class="col-sm">
@@ -28,7 +30,10 @@
               <div style="display: flex; flex-direction:column" class="col-sm">
                 <h3 style="align-self: center;">KNN-HighD</h3>
                 {% for item in KnnHighD %}
-                    <p>{{ item }}</p>
+                <div style="display: flex; flex-direction: column;">
+                    <img style="width: 220px; display: flex; align-self: center;" src="{{item[1]}}">
+                    <p style="display: flex; align-self: center;">Distance: {{ item[0] }}</p>
+                </div>
                 {% endfor %}
             </div>
         </div>
