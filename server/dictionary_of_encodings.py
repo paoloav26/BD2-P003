@@ -10,7 +10,7 @@ pickle_out = open("dict.pickle","wb")
 file_dir = []
 for root,d_names,f_names in os.walk(PATH):
     for f in f_names:
-        file_dir.append((root[6:],root+'/'+f))
+        file_dir.append((root[13:],root+'/'+f))
 
 dict_name_encodings_arr = {}
 for person_name,route in file_dir:

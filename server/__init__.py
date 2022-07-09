@@ -40,6 +40,7 @@ def create_app(test_config=None):
                     data=pickle.load(pickle_in)
                     pickle_in.close()
 
+                    image_photo="./static/"+image.filename
                     KNNheap=KnnHeap(encoding,5,data)
                     KNNHighd=KnnHighD(encoding,5,data)
                     
@@ -47,7 +48,7 @@ def create_app(test_config=None):
                     print(e)
                     error_msg="ERROR: Esa imagen no puede ser procesada"
 
-            return render_template("index.html",error_msg=error_msg,Knnheap=KNNheap,KnnHighD=KNNHighd)
+            return render_template("index.html",error_msg=error_msg,input_photo=image_photo,Knnheap=KNNheap,KnnHighD=KNNHighd)
 
             
         return render_template("index.html")
