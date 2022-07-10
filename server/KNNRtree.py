@@ -14,33 +14,32 @@ prop.dat_extension = "data"
 prop.idx_extension = "index"
 
 def crear():
-    pickle_in = open("dict.pickle","rb")
+    pickle_in = open("./server/dict.pickle","rb")
     data_vec=pickle.load(pickle_in)
 
 
-    if os.path.exists("puntos.data"): os.remove("puntos.data")
-    if os.path.exists("puntos.index"): os.remove("puntos.index")
+    if os.path.exists("./server/puntos.data"): os.remove("./server/puntos.data")
+    if os.path.exists("./server/puntos.index"): os.remove("./server/puntos.index")
 
-    ind = rtree.index.Index("puntos", properties = prop)
+    ind = rtree.index.Index("./server/puntos", properties = prop)
 
     var=0
     
     for i in data_vec:
-        ind.insert(var, data_vec[i][0][0])
-        var=var+1
+        for j in data_vec[i]:
+            if(len(j[0])!=128): print("QUE FUE")
+            ind.insert(var, j[0])
+            var=var+1
+    print(var)
 
 def KnnRtreee(Query,k,data):
     ind = rtree.index.Index("./server/puntos", properties = prop)
 
     pickle_in = open("./server/dict_mapeo.pickle","rb")
     mapeo=pickle.load(pickle_in)
-    res=ind.nearest(Query, num_results=k)
+    res=ind.nearest(Query, num_results=k) 
     arr=[]
     for i in list(res):
         arr.append(mapeo[i])
-
+    #print(arr)
     return arr
-
-#crear()
-
-
