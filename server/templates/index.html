@@ -3,13 +3,17 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-        <div style="display: flex; flex-direction: row;">
+        <div style="display: flex; justify-content: center;">
             <form id="image_form" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                  <label for="exampleFormControlFile1">Example file input</label>
+                <h2>Image input</h2>
+                <div class="form-group" style="display: flex; flex-direction: row;">
                   <input type="file" class="form-control-file" id="image" name="image">
+                  <div>
+                    <label>K elementos: </label>
+                    <input type="number" name="knumber" value="5">
+                  </div>
                 </div>
-                <input type="submit" value="submit">
+                <input class="float-right" type="submit" value="submit">
             </form>
         </div>
         <div style="display: flex; justify-content: center; flex-direction: column;">
@@ -22,6 +26,7 @@
             <div class="row">
               <div style="display: flex; flex-direction:column" class="col-sm">
                 <h3 style="align-self: center;">KNN-Secuencial</h3>
+                <p style="align-self: center;">Execution time: {{KNNheap_time}}s</p>
                 {% for item in Knnheap %}
                 <div style="display: flex; flex-direction: column;">
                     <img style="width: 220px; display: flex; align-self: center;" src="{{item[1]}}">
@@ -31,6 +36,7 @@
               </div>
               <div style="display: flex; flex-direction:column" class="col-sm">
                 <h3 style="align-self: center;">KNN-RTree</h3>
+                <p style="align-self: center;">Execution time: {{KnnRtreee_time}}s</p>
                 {% for item in KnnR %}
                 <div style="display: flex; flex-direction: column;">
                     <img style="width: 220px; display: flex; align-self: center;" src="{{item}}">
@@ -40,6 +46,7 @@
               </div>
               <div style="display: flex; flex-direction:column" class="col-sm">
                 <h3 style="align-self: center;">KNN-HighD</h3>
+                <p style="align-self: center;">Execution time: {{KNNHighd_time}}s</p>
                 {% for item in KnnHighD %}
                 <div style="display: flex; flex-direction: column;">
                     <img style="width: 220px; display: flex; align-self: center;" src="{{item[1]}}">
