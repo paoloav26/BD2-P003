@@ -8,6 +8,7 @@ from flask import (
 import os
 from Knnheap import KnnHeap
 from KnnHighd import KnnHighD
+from KNNRtree import KnnRtreee
 import face_recognition
 import pickle
 
@@ -43,12 +44,13 @@ def create_app(test_config=None):
                     image_photo="./static/"+image.filename
                     KNNheap=KnnHeap(encoding,5,data)
                     KNNHighd=KnnHighD(encoding,5,data)
-                    
+                    KNNR_1=KnnRtreee(encoding,5,data)
+                    print(KNNR_1)
                 except Exception as e:
                     print(e)
                     error_msg="ERROR: Esa imagen no puede ser procesada"
 
-            return render_template("index.html",error_msg=error_msg,input_photo=image_photo,Knnheap=KNNheap,KnnHighD=KNNHighd)
+            return render_template("index.html",error_msg=error_msg,input_photo=image_photo,Knnheap=KNNheap,KnnHighD=KNNHighd,KnnR=KNNR_1)
 
             
         return render_template("index.html")
