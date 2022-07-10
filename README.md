@@ -31,6 +31,6 @@ recuperación eficiente de imágenes en un servicio web de reconocimiento facial
 -Computamos para toda la dataset los vectores característicos y los guardamos en memoria secundaria a través de Pickle, esto con el objetivo de no voler a realizar ese cálculo tan costoso, posteriormente realizamos las consultas a KNNheap, KNNRtree y KNNHigh, a excepción de la primera función (que consta de calcular las distancias euclidianas entre la consulta y toda la dataset) los demás métodos en sus librerías respectivas ya facilitan los K vecinos más cercanos.
 
 ### Maldición de la dimensionalidad
--Trabajamos con 128 dimensiones, para lo cual no hemos encontrado esparcidad en nuestras respuestas, sin embargo, hemos notado como observaremos en experimentación que probablemente se pueda aumentar aun más el tamaño del vector latente, no obstante, si hallamos un gran incoveniente en los tiempos de cómputo, esto se puede reducir mediante una técnica de reducción de la simensionalidad como PCA pero el problema de aplicar eso es que perderiamos cálidad en las respuestas.
+-Trabajamos con 128 dimensiones, para lo cual no hemos encontrado esparcidad en nuestras respuestas, sin embargo, hemos notado como observaremos en experimentación que probablemente se pueda aumentar aun más el tamaño del vector latente, no obstante, si hallamos un gran incoveniente en los tiempos de cómputo, esto se puede reducir mediante una técnica de reducción de la dimensionalidad como PCA pero el problema de aplicar eso es que perderiamos cálidad en las respuestas.
 
 ### Experimentación
