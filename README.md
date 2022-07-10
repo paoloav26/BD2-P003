@@ -15,6 +15,7 @@ recuperación eficiente de imágenes en un servicio web de reconocimiento facial
 ### Pre-requisitos 📋
 - Python >= 3.8
 ### Despliegue 📦
+ Crear en server, una carpeta de nombre "static" en ella agregar la dataset (http://vis-www.cs.umass.edu/lfw/), no la podimos subir al presente git por el peso del archivo. <br />
 - Ejecutar archivo __init__.py de la carpeta server
 ### Dataset
 - El conjunto de fotografías del laboratorio 11 que consta de 13233 imágenes de 5749 personas distintas.
