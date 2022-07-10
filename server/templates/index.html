@@ -31,6 +31,12 @@
               </div>
               <div style="display: flex; flex-direction:column" class="col-sm">
                 <h3 style="align-self: center;">KNN-RTree</h3>
+                {% for item in KnnR %}
+                <div style="display: flex; flex-direction: column;">
+                    <img style="width: 220px; display: flex; align-self: center;" src="{{item}}">
+                    <p> </p>
+                </div>
+                {% endfor %}
               </div>
               <div style="display: flex; flex-direction:column" class="col-sm">
                 <h3 style="align-self: center;">KNN-HighD</h3>
