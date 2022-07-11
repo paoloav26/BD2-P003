@@ -35,3 +35,18 @@ recuperación eficiente de imágenes en un servicio web de reconocimiento facial
 - Trabajamos con 128 dimensiones, para lo cual no hemos encontrado esparcidad en nuestras respuestas, sin embargo, hemos notado como observaremos en experimentación que probablemente se pueda aumentar aun más el tamaño del vector latente, no obstante, si hallamos un gran incoveniente en los tiempos de cómputo, esto se puede reducir mediante una técnica de reducción de la dimensionalidad como PCA pero el problema de aplicar eso es que perderiamos cálidad en las respuestas.
 
 ### Experimentación
+
+<center>
+ 
+| First Header  | KNN-Secuencial | KNN-RTree | KNN- HighD |
+| ------------- | ------------- | ------------- | ------------- |
+| N = 100       |      0.00185037s         |      0.01941872s         |     0.00194693s          |
+| N = 200       |       0.00560069s        |         0.02719474s      |       0.00145698s        |
+| N = 400       |        0.01148677s       |         0.04768586s      |       0.01214409s        |
+| N = 800       |       0.02149701s        |        0.02569628s       |         0.00453877s      |
+| N = 1600      |      0.01558828s         |         0.02265048s      |         0.00298381s      |
+| N = 3200      |        0.03169847s       |      0.04271317s         |        0.00888276s       |
+| N = 6400      |      0.16779065s         |         0.09990478s      |        0.03889823s       |
+| N = 12800     |       0.10855675s        |         0.09469271s      |        0.02192521s       |
+ 
+ </center>
