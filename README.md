@@ -43,7 +43,7 @@ recuperación eficiente de imágenes en un servicio web de reconocimiento facial
 | N = 100       |      0.00185037s         |      0.01941872s         |     0.00194693s          |
 | N = 200       |       0.00560069s        |         0.02719474s      |       0.00145698s        |
 | N = 400       |        0.01148677s       |         0.04768586s      |       0.01214409s        |
-| N = 800       |       0.02149701s        |        0.02569628s       |         0.00453877s      |
+| N = 800       |       0.02149701s        |        0.02569628s       |         0.00153877s      |
 | N = 1600      |      0.01558828s         |         0.02265048s      |         0.00298381s      |
 | N = 3200      |        0.03169847s       |      0.04271317s         |        0.00888276s       |
 | N = 6400      |      0.16779065s         |         0.09990478s      |        0.03889823s       |
@@ -52,5 +52,5 @@ recuperación eficiente de imágenes en un servicio web de reconocimiento facial
  </center>
  
  ### Analisis y conclusiones
- - Es interesante notar que cuándo la cantidad de elementos es baja, faiss y sequential se comportan casi igual, esto suponemos que es debido a la complejidad estructural del segundo, además tambien notamos que cuando se ejecutaba la misma query dos veces seguidas, al segundo intento el tiempo disminuia dramaticamente, esto inferimos que es por el principio de localidad de memoria y su optimizacion respectiva en faiss.
+ - Es interesante notar que cuándo la cantidad de elementos es baja, faiss y sequential se comportan casi igual, esto suponemos que es debido a la complejidad estructural del segundo, además tambien notamos que cuando se ejecutaba la misma query dos veces seguidas, al segundo intento el tiempo disminuia dramaticamente, esto inferimos que es por el principio de localidad de memoria y su optimizacion respectiva en faiss, ya para n>=1600 es palmaria la superioridad de HighD.
 
