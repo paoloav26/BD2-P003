@@ -50,3 +50,7 @@ recuperación eficiente de imágenes en un servicio web de reconocimiento facial
 | N = 12800     |       0.10855675s        |         0.09469271s      |        0.02192521s       |
  
  </center>
+ 
+ ### Analisis y conclusiones
+ - Es interesante notar que cuándo la cantidad de elementos es baja, faiss y sequential se comportan casi igual, esto suponemos que es debido a la complejidad estructural del segundo, además tambien notamos que cuando se ejecutaba la misma query dos veces seguidas, al segundo intento el tiempo disminuia dramaticamente, esto inferimos que es por el principio de localidad de memoria y su optimizacion respectiva en faiss.
+
