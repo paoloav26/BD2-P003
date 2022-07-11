@@ -51,6 +51,6 @@ recuperación eficiente de imágenes en un servicio web de reconocimiento facial
  
  </center>
  
- ### Analisis y conclusiones
+ ### Análisis y conclusiones
  - Es interesante notar que cuándo la cantidad de elementos es baja, faiss y sequential se comportan casi igual, esto suponemos que es debido a la complejidad estructural del segundo, además tambien notamos que cuando se ejecutaba la misma query dos veces seguidas, al segundo intento el tiempo disminuia dramaticamente, esto inferimos que es por el principio de localidad de memoria y su optimizacion respectiva en faiss, ya para n>=1600 es palmaria la superioridad de HighD.
 
