@@ -36,7 +36,7 @@ recuperación eficiente de imágenes en un servicio web de reconocimiento facial
 
 ### Experimentación
 
-<center>
+<div align="center">
  
 | First Header  | KNN-Secuencial | KNN-RTree | KNN- HighD |
 | ------------- | ------------- | ------------- | ------------- |
@@ -48,8 +48,11 @@ recuperación eficiente de imágenes en un servicio web de reconocimiento facial
 | N = 3200      |        0.03169847s       |      0.04271317s         |        0.00888276s       |
 | N = 6400      |      0.16779065s         |         0.09990478s      |        0.03889823s       |
 | N = 12800     |       0.10855675s        |         0.09469271s      |        0.02192521s       |
+
+
+![](experimentacion/output.png)
  
- </center>
+ </div>
  
  ### Análisis y conclusiones
  - Es interesante notar que cuándo la cantidad de elementos es baja, faiss y sequential se comportan casi igual, esto suponemos que es debido a la complejidad estructural del segundo, además tambien notamos que cuando se ejecutaba la misma query dos veces seguidas, al segundo intento el tiempo disminuia dramaticamente, esto inferimos que es por el principio de localidad de memoria y su optimizacion respectiva en faiss, ya para n>=1600 es palmaria la superioridad de HighD.
