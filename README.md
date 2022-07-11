@@ -8,7 +8,7 @@
 - Heider Sanchez Enriquez
 
 ## Objetivos Principales 🎯
-- Este proyecto está enfocado al uso una estructura multidimensional para dar soporte a las búsqueda y 
+- Construir una estructura multidimensional para dar soporte a las búsqueda y 
 recuperación eficiente de imágenes en un servicio web de reconocimiento facial.
 
 ## Comenzando 🚀
